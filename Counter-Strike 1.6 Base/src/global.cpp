@@ -1,0 +1,58 @@
+#include "global.h"
+
+bool keys[256];
+
+cldll_func_t* cl_funcs;
+cl_enginefunc_t* gEngfuncs;
+svc_func_t *cl_parsefuncs;
+int* msg_readcount;
+client_static_t* cls;
+char* com_token;
+client_state_t* nMax;
+UserMsg** gClientUserMsgs;
+char** cmd_args;
+
+BOOL (WINAPI *original_SwapBuffers)(HDC);
+void (*original_CL_Parse_StuffText)(void);
+void (*original_CL_Parse_Director)(void);
+char* (*MSG_ReadString)(void);
+int (*MSG_ReadByte)(void);
+void (*Cmd_TokenizeString)(char*);
+void (*CL_RecordHUDCommand)(char*);
+char* (*COM_Parse)(char*);
+void (*Cvar_DirectSet)(cvar_s*, char*);
+void (*Cmd_ForwardToServer)(void);
+qboolean (*original_ValidStuffText)(const char*);
+void (*original_Cbuf_AddFilteredText)(char*);
+void (*MSG_BeginReading)(void);
+int (*MSG_ReadLong)(void);
+char* (*MSG_ReadStringLine)(void);
+void (*Cbuf_AddText)(char*);
+void (*CL_Disconnect)(void);
+void (*original_CL_ConnectionlessPacket)(void);
+qboolean (*original_IsSafeFileToDownload)(const char*);
+void (*original_CL_Parse_VoiceInit)(void);
+void (*original_CL_Send_CvarValue)(void);
+void (*original_CL_Send_CvarValue2)(void);
+void (*MSG_WriteByte)(sizebuf_t*, int);
+void (*MSG_WriteLong)(sizebuf_t*, int);
+void (*MSG_WriteString)(sizebuf_t*, const char*);
+BOOL (*original_MD5_Hash_File)(unsigned char*, char*, BOOL, BOOL, unsigned int*);
+int (*original___MsgFunc_MOTD)(const char*, int, void*);
+char* (*original_CL_GetCDKeyHash)(void);
+int (*original_Steam_GSInitiateGameConnection)(void*, int, uint64, uint32, uint16, qboolean);
+void (*original_R_ForceCVars)(qboolean);
+void (*original_CL_Set_ServerExtraInfo)(void);
+void (*original_CL_Parse_Disconnect)(void);
+pfnEngSrc_pfnVGUI2DrawCharacterAdd_t original_pfnVGUI2DrawCharacterAdd;
+HUD_ADDENTITY_FUNC original_pAddEntity;
+void (*original_CL_Parse_TempEntity)(void);
+int (*MSG_ReadShort)(void);
+float (*MSG_ReadCoord)(void);
+float (*MSG_ReadAngle)(void);
+void (*original_Host_Motd_Write_f)(void);
+void (*original_Host_WriteCustomConfig)(void);
+void (*original_SV_WriteId_f)(void);
+void (*original__Host_Frame)(float);
+void (*original_Host_Say_f)(void);
+void (*original_Host_Say_Team_f)(void);
